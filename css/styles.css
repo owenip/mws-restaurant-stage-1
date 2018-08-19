@@ -32,9 +32,12 @@ body {
 }
 
 /* Prevent images overflowing the viewport */
+
 img {
   max-width: 100%;
 }
+
+/* ====================== Navigation Bar ====================== */
 
 .nav {
   align-items: center;
@@ -52,4 +55,30 @@ img {
   letter-spacing: 0.5rem;
   text-transform: uppercase;
   text-decoration: none;
+}
+
+.nav-title:hover,
+.nav-title:focus {
+  font-weight: 1.0rem;
+  letter-spacing: 0.65rem;
+}
+
+/* Make sure the Title is large enough to be tapped on screen */
+
+.nav a {
+  min-width: 48px;
+  min-height: 48px;
+}
+
+/* ====================== Map ====================== */
+
+.maps {
+  width: 100%;
+}
+
+/* ====================== Restaurant Filtering ====================== */
+
+.restaurant-filter {
+  width: 100%;
+  background-color: #252831;
 }
