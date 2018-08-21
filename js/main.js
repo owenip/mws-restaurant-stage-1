@@ -170,7 +170,7 @@ createRestaurantHTML = (restaurant) => {
   li.append(name);
 
   const cardContent = document.createElement('div');
-  cardContent.className = 'card-content';
+  cardContent.className = 'card-textArea';
 
   const neighborhood = document.createElement('p');
   neighborhood.innerHTML = restaurant.neighborhood;

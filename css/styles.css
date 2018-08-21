@@ -19,7 +19,7 @@ body {
 /* wrapper: wrap all items that is inside body tag*/
 
 .wrapper {
-  margin: 0%;
+  margin: 0% auto;
   padding: 0%;
   display: flex;
   flex-flow: row wrap;
@@ -70,6 +70,54 @@ img {
   min-height: 48px;
 }
 
+/* ====================== Breadcrumbs ====================== */
+
+.breadcrumbs {
+  align-items: center;
+  max-width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 0;
+  min-width: 48px;
+  min-height: 52px;
+  padding-left: 1rem;
+}
+
+#breadcrumb {
+  list-style: none;
+  font-weight: 300;
+  background-color: #eee;
+}
+
+/* Display list items side by side */
+
+#breadcrumb li {
+  display: inline;
+}
+
+/* Add a slash symbol (/) before/behind each list item */
+
+#breadcrumb li+li:before {
+  padding: 0.5rem;
+  color: black;
+  content: "/\00a0";
+}
+
+/* Add a color to all links inside the list */
+
+#breadcrumb li a {
+  color: #0275d8;
+  text-decoration: none;
+}
+
+/* Add a color on mouse-over */
+
+#breadcrumb li a:hover {
+  color: #01447e;
+  text-decoration: underline;
+}
+
 /* ====================== Map ====================== */
 
 .maps {
@@ -115,7 +163,7 @@ img {
   list-style: outside none none;
   margin: 0;
   padding: 30px 15px 60px;
-  text-align: center;  
+  text-align: center;
   justify-content: space-between;
 }
 
@@ -136,7 +184,7 @@ img {
 }
 
 .card-title,
-.card-content {
+.card-textArea {
   padding: 0.5rem;
 }
 
@@ -155,7 +203,7 @@ img {
   font-size: 11pt;
 }
 
-#restaurants-list li a {
+.card-action {
   align-items: center;
   background-color: #252831;
   border-bottom: 3px solid #eee;
@@ -169,14 +217,71 @@ img {
   text-transform: uppercase;
 }
 
+/* ====================== Restaurant Details ====================== */
+
+.restaurant-details-container  {
+  margin: 0;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.restaurant-details-title {
+  width: 100%;
+  margin: 0.5rem;
+}
+
+.restaurant-details-cuisine {
+  width: auto;
+  background-color: #252831;
+  align-items: center;
+  justify-content: center;
+  padding: 0.2rem 0;
+  margin-bottom: 1rem;
+}
+
+.restaurant-details-cuisine-content {
+  color: #eee;
+  text-align: center;
+  font-weight: 300;
+  margin: 0%;
+}
+
+.restaurant-details-address {
+  font-weight: 700;
+}
+
+.restaurant-details-openingHours {
+
+}
+
+.restaurant-details-img {
+  background-color: #ccc;
+  display: block;
+  margin: 0;
+  max-width: 100%;
+  min-height: 248px;
+  min-width: 100%;
+}
+
+.restaurant-details-map {
+  width: 100%;
+  min-height: 25vh;
+  flex: 1;
+}
+
+/* ====================== Breakpoints ====================== */
+
 @media screen and (min-width: 481px) and (max-width: 980px) {
-  .restaurant-card{
+  .restaurant-card {
     flex: 0 1 calc(48% - 1em);
   }
 }
 
 @media screen and (min-width: 981px) {
-  .restaurant-card{
+  .restaurant-card {
     flex: 0 1 calc(30% - 1em);
   }
 }
