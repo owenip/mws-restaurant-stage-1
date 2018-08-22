@@ -9,7 +9,7 @@ body {
 }
 
 body {
-  background-color: #fdfdfd;
+  background-color: #f3f3f3;
   margin: 0;
   max-width: 1024px;
   position: relative;
@@ -156,7 +156,6 @@ img {
 /* ====================== Restaurant Listing ====================== */
 
 #restaurants-list {
-  background-color: #f3f3f3;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -249,12 +248,16 @@ img {
   margin: 0%;
 }
 
-.restaurant-details-address {
+.restaurant-details-addressAndMap {
   font-weight: 700;
 }
 
 .restaurant-details-openingHours {
+  font-weight: 500;
+}
 
+#restaurant-hours {
+  margin: 1rem auto;
 }
 
 .restaurant-details-img {
