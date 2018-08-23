@@ -165,7 +165,7 @@ img {
   margin: 0;
   padding: 30px 15px 60px;
   text-align: center;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 .restaurant-card {
