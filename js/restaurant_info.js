@@ -126,9 +126,9 @@ fillRestaurantHoursHTML = (operatingHours = self.restaurant.operating_hours) => 
  */
 fillReviewsHTML = (reviews = self.restaurant.reviews) => {
   const container = document.getElementById('reviews-container');
-  const title = document.createElement('h2');
-  title.innerHTML = 'Reviews';
-  container.appendChild(title);
+  // const title = document.createElement('h2');
+  // title.innerHTML = 'Reviews';
+  // container.appendChild(title);
 
   if (!reviews) {
     const noReviews = document.createElement('p');
@@ -148,22 +148,32 @@ fillReviewsHTML = (reviews = self.restaurant.reviews) => {
  */
 createReviewHTML = (review) => {
   const li = document.createElement('li');
+  li.className = 'review-card';
+
+  const divCardContent = document.createElement('div');
+  divCardContent.className = 'review-card-content';
+
   const name = document.createElement('p');
+  name.className = 'review-card-reviewerName';
   name.innerHTML = review.name;
-  li.appendChild(name);
+  divCardContent.appendChild(name);
 
   const date = document.createElement('p');
+  date.className = 'review-card-date';
   date.innerHTML = review.date;
-  li.appendChild(date);
+  divCardContent.appendChild(date);
 
   const rating = document.createElement('p');
+  rating.className = 'review-card-rating';
   rating.innerHTML = `Rating: ${review.rating}`;
-  li.appendChild(rating);
+  divCardContent.appendChild(rating);
 
   const comments = document.createElement('p');
+  comments.className = 'review-card-comments';
   comments.innerHTML = review.comments;
-  li.appendChild(comments);
+  divCardContent.appendChild(comments);
 
+  li.appendChild(divCardContent);
   return li;
 }
 

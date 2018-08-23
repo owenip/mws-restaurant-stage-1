@@ -9,7 +9,6 @@ body {
 }
 
 body {
-  background-color: #f3f3f3;
   margin: 0;
   max-width: 1024px;
   position: relative;
@@ -19,16 +18,19 @@ body {
 /* wrapper: wrap all items that is inside body tag*/
 
 .wrapper {
+  background-color: #f3f3f3;
   margin: 0% auto;
   padding: 0%;
   display: flex;
   flex-flow: row wrap;
+  min-width: 360px;
 }
 
 /* make wrapper children to be 100% width. */
 
 .wrapper>* {
   flex: 1 100%;
+  max-width: 100%;
 }
 
 /* Prevent images overflowing the viewport */
@@ -218,7 +220,7 @@ img {
 
 /* ====================== Restaurant Details ====================== */
 
-.restaurant-details-container  {
+.restaurant-details-container {
   margin: 0;
   padding: 0.5rem;
   display: flex;
@@ -229,7 +231,16 @@ img {
 
 .restaurant-details-title {
   width: 100%;
-  margin: 0.5rem;
+  margin: 0 0 0.5rem 0;
+}
+
+.restaurant-details-img {
+  background-color: #ccc;
+  display: block;
+  margin: 0;
+  max-width: 100%;
+  min-height: 248px;
+  min-width: 100%;
 }
 
 .restaurant-details-cuisine {
@@ -252,27 +263,70 @@ img {
   font-weight: 700;
 }
 
+.restaurant-details-map {
+  width: 100%;
+  min-height: 25vh;
+  flex: 1;
+}
+
 .restaurant-details-openingHours {
   font-weight: 500;
+  margin: 0.5rem;
 }
 
 #restaurant-hours {
   margin: 1rem auto;
 }
 
-.restaurant-details-img {
-  background-color: #ccc;
-  display: block;
-  margin: 0;
-  max-width: 100%;
-  min-height: 248px;
-  min-width: 100%;
+/* ====================== Restaurant Review===============*/
+.reviews-container {
+  padding: 0.5rem;
 }
 
-.restaurant-details-map {
+.review-container-title {
+  color: #01447e;
+}
+
+.review-cards {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0%;
+  justify-content: space-between;
+}
+
+.review-card {
+  border-radius: 1em;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  list-style-type: none;
+  margin: 0.5rem auto;
   width: 100%;
-  min-height: 25vh;
-  flex: 1;
+}
+
+.review-card-content {
+  padding: 0.5rem 1.5rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.review-card-reviewerName {
+  font-weight: 600;
+  flex: 0 0 50%;
+}
+
+.review-card-date {
+  width: 50%;
+  text-align: right;
+  flex: 0 0 50%;
+}
+
+.review-card-rating {
+  margin: 0%;
+  flex: 0 1 100%;  
 }
 
 /* ====================== Breakpoints ====================== */
