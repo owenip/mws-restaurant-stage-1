@@ -72,19 +72,22 @@ fillCuisinesHTML = (cuisines = self.cuisines) => {
  * Initialize leaflet map, called from HTML.
  */
 initMap = () => {
-  self.newMap = L.map('map', {
-        center: [40.722216, -73.987501],
-        zoom: 12,
-        scrollWheelZoom: false
-      });
-  L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.jpg70?access_token={mapboxToken}', {
-    mapboxToken: 'pk.eyJ1IjoiaXBvd2VuIiwiYSI6ImNqa3hjaWxxbjA3OWczdnA4cjVnZ3oxdDYifQ.r2Dsocg7BY9fcbu_JCeYRQ',
-    maxZoom: 18,
-    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
-      '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
-      'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-    id: 'mapbox.streets'
-  }).addTo(newMap);
+  if ("undefined" != typeof L) {
+    self.newMap = L.map('map', {
+      center: [40.722216, -73.987501],
+      zoom: 12,
+      scrollWheelZoom: false
+    });
+    L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.jpg70?access_token={mapboxToken}', {
+      mapboxToken: 'pk.eyJ1IjoiaXBvd2VuIiwiYSI6ImNqa3hjaWxxbjA3OWczdnA4cjVnZ3oxdDYifQ.r2Dsocg7BY9fcbu_JCeYRQ',
+      maxZoom: 18,
+      attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+        '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+        'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+      id: 'mapbox.streets'
+    }).addTo(newMap);
+  }
+
 
   updateRestaurants();
 }
@@ -161,7 +164,7 @@ createRestaurantHTML = (restaurant) => {
 
   const image = document.createElement('img');
   image.className = 'card-img';
-  
+
   //image.src = DBHelper.imageUrlForRestaurant(restaurant);
   const imageDefaultSrc = DBHelper.imageUrlForRestaurant(restaurant);
   const imageParts = imageDefaultSrc.split('.');
@@ -170,7 +173,7 @@ createRestaurantHTML = (restaurant) => {
   const imageMedium = imageParts[0] + '-800_medium.' + imageParts[1];
   image.srcset = `${imageSmall} 480w, ${imageMedium} 800w`;
   image.src = imageDefaultSrc;
-  image.alt =  restaurant.name + ` restaurant promotional image`;
+  image.alt = restaurant.name + ` restaurant promotional image`;
   li.append(image);
 
   const name = document.createElement('h1');
@@ -194,7 +197,7 @@ createRestaurantHTML = (restaurant) => {
   more.className = 'card-action';
   more.innerHTML = 'View Details';
   more.href = DBHelper.urlForRestaurant(restaurant);
-  
+
 
   li.append(more);
 
@@ -209,13 +212,14 @@ addMarkersToMap = (restaurants = self.restaurants) => {
     // Add marker to the map
     const marker = DBHelper.mapMarkerForRestaurant(restaurant, self.newMap);
     marker.on("click", onClick);
+
     function onClick() {
       window.location.href = marker.options.url;
     }
     self.markers.push(marker);
   });
 
-} 
+}
 /* addMarkersToMap = (restaurants = self.restaurants) => {
   restaurants.forEach(restaurant => {
     // Add marker to the map
@@ -226,4 +230,3 @@ addMarkersToMap = (restaurants = self.restaurants) => {
     self.markers.push(marker);
   });
 } */
-
